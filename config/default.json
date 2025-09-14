@@ -1,0 +1,15 @@
+{
+  "port": 3000,
+  "db_host": "localhost",
+  "db_username": "postgres",
+  "db_password": "1234",
+  "db_port": 5432,
+  "db_name": "imtihon_3oy",
+  "access_key": "secreeeeet",
+  "refresh_key": "secreeeeetRefresshhhh",
+  "access_time": "15s",
+  "refresh_time": "50s",
+  "cookie_refresh_token_time": 1296000000,
+  "iv": "Shox0219",
+  "crypt_password": "JUDAJUDAkuchliipassword"
+}

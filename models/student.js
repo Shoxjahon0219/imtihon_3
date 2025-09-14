@@ -1,0 +1,42 @@
+const { DataTypes } = require("sequelize");
+const sequelize = require("../config/db");
+
+const Student = sequelize.define(
+  "student",
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    full_name: {
+      type: DataTypes.STRING(50),
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING(50),
+      unique: true,
+      allowNull: false,
+    },
+    phone_number: {
+      type: DataTypes.STRING(15),
+    },
+    password: {
+      type: DataTypes.STRING(),
+      allowNull: false,
+    },
+    is_active: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
+    refresh_token: {
+      type: DataTypes.STRING(255),
+    },
+  },
+  {
+    freezeTableName: true,
+    timestamps: false,
+  }
+);
+
+module.exports = Student;

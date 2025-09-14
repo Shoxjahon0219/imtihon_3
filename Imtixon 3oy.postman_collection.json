@@ -1,0 +1,228 @@
+{
+	"info": {
+		"_postman_id": "133171ee-084c-4d1f-996b-7f4a681e205b",
+		"name": "Imtixon 3oy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46840859",
+		"_collection_link": "https://red-water-3951189.postman.co/workspace/%D0%A8%D0%BE%D1%85%D0%B6%D0%B0%D1%85%D0%BE%D0%BD-%D0%97%D0%BE%D1%85%D0%B8%D1%80%D0%BE%D0%B2's-Workspace~ab66bf4c-488a-42a3-8ca5-2ae5653f2264/collection/46840859-133171ee-084c-4d1f-996b-7f4a681e205b?action=share&source=collection_link&creator=46840859"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"full_name\": \"Admin Adminovich\",\n    \"password\": \"qwerty\",\n    \"phone_number\": \"1234567\",\n    \"email\": \"botivsadfaddr@mail.uz\",\n    \"is_creater\": true\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJib3RpdnNhZGZhZGRyQG1haWwudXoiLCJpc19hY3RpdmUiOnRydWUsImlhdCI6MTc1Njk5MjA2MCwiZXhwIjoxNzU3MDQ2MDYwfQ.0zcQQEN2xSXKO86sR4KKOGjGxFgVn2CkarepM6_2iSo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/admin/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"admin",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"full_name\": \"Qodir botirov\",\n    \"user_name\": \"QodirAdmin\",\n    \"password\": \"555555555\",\n    \"phone_number\": \"1234567\",\n    \"email\": \"botir@mail.uz\",\n    \"tg_link\": \"@qodircheek_jong\",\n    \"token\": \"dfgdfgdfgdfgdfgdsgsdvsdbgfbbearer\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/admin/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"admin",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/admin/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"admin",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Otp",
+			"item": [
+				{
+					"name": "NewOtp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone_number\":\"998971234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/otp/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"otp",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VerifyOtp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone_number\": \"998971234567\",\r\n    \"verification_key\": \"7I3hbCKCMcu5dRFliHMOcO2CiSdOvSfkyu8M7NZF5a+VPdNheY2nhjb2T05ok0USrKbbCeny3DZfCrqLHjiTBFhe+nW3bdkZ4K/zvqWMiV3kQ89auZD9lJ2PohTdQTYa/CgJU6CHwy2QUVF0tW1AgFr9F86/JWz+i0f4CHztTr8=\",\r\n    \"otp\": \"9776\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/otp/verify",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"otp",
+								"verify"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
