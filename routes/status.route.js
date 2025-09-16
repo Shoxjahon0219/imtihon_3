@@ -6,13 +6,30 @@ const {
   UpdateStatus,
   DeleteStatus,
 } = require("../controllers/status.controller");
+const { CheckValid } = require("../middlewares/check.valid");
+const { statusValidator } = require("../validators/status");
+const roleGuard = require("../middlewares/guards/role.guard");
 
 const router = Router();
 
-router.post("/", CreateStatus);
-router.get("/", GetAllStatus);
-router.get("/:id", GetOneStatus);
-router.patch("/:id", UpdateStatus);
-router.delete("/:id", DeleteStatus);
+router.post(
+  "/",
+  roleGuard(["Superadmin"]),
+  CheckValid(statusValidator),
+  CreateStatus
+);
+router.get(
+  "/",
+  roleGuard(["Superadmin", "Admin", "Teacher", "Student"]),
+  GetAllStatus
+);
+router.get("/:id", roleGuard(["Superadmin"]), GetOneStatus);
+router.patch(
+  "/:id",
+  roleGuard(["Superadmin"]),
+  CheckValid(statusValidator),
+  UpdateStatus
+);
+router.delete("/:id", roleGuard(["Superadmin"]), DeleteStatus);
 
 module.exports = router;

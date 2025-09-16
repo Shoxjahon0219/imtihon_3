@@ -31,7 +31,7 @@ const Admin = sequelize.define(
     },
     is_active: {
       type: DataTypes.BOOLEAN,
-      defaultValue: true,
+      defaultValue: false,
     },
     refresh_token: {
       type: DataTypes.STRING(255),

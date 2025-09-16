@@ -1,16 +1,31 @@
 const { sendErrorResponse } = require("../helpers/send.error.response.js");
+const Contract = require("../models/contract.js");
 const Payment = require("../models/payment");
 
 const CreatePayment = async (req, res) => {
   try {
-    const { amount } = req.body;
+    const { amount, contract_id } = req.body;
+
+    const contract = await Contract.findByPk(contract_id);
+    if (!contract) {
+      return sendErrorResponse({ message: "Contract not found" }, res, 404);
+    }
+    if (amount > contract.total_price) {
+      contract.total_price = 0;
+      contract.status_id = 2;
+    } else {
+      contract.total_price -= amount;
+    }
+    await contract.save();
 
     const newPayment = await Payment.create({
       amount,
+      contract_id,
     });
 
     res.status(201).send({
-      message: "New Payment сreated successfuly",
+      message:
+        "The new payment has been successfully created and paid under the contract.",
       data: newPayment,
     });
   } catch (err) {

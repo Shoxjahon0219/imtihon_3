@@ -19,6 +19,10 @@ const Course = sequelize.define(
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
     },
+    duration: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
     language_id: {
       type: DataTypes.INTEGER,
       allowNull: false,

@@ -8,6 +8,24 @@ const CreateContract = async (req, res) => {
   try {
     const { group_id, student_id, status_id, total_price } = req.body;
 
+    const group = await Group.findByPk(group_id);
+    if (!group) {
+      return sendErrorResponse("Group not found", res, 404);
+    }
+    const student = await Student.findByPk(student_id);
+    if (!student) {
+      return sendErrorResponse("Student not found", res, 404);
+    }
+    const status = await Status.findByPk(status_id);
+    if (!status) {
+      return sendErrorResponse("Status not found", res, 404);
+    }
+
+    if (status.name === "Active") {
+      group.count_students += 1;
+      await group.save();
+    }
+
     const newContract = await Contract.create({
       group_id,
       student_id,
@@ -87,6 +105,23 @@ const UpdateContract = async (req, res) => {
     const { group_id, student_id, status_id, total_price } = req.body;
     const { id } = req.params;
 
+    const group = await Group.findByPk(group_id);
+    if (!group) {
+      return sendErrorResponse("Group not found", res, 404);
+    }
+    const student = await Student.findByPk(student_id);
+    if (!student) {
+      return sendErrorResponse("Student not found", res, 404);
+    }
+    const status = await Status.findByPk(status_id);
+    if (!status) {
+      return sendErrorResponse("Status not found", res, 404);
+    }
+
+    if (status.name === "cancelled" || group.count_students > 0) {
+      group.count_students -= 1;
+      await group.save();
+    }
     const course = await Contract.update(
       {
         group_id,

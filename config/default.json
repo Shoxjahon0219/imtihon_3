@@ -7,9 +7,12 @@
   "db_name": "imtihon_3oy",
   "access_key": "secreeeeet",
   "refresh_key": "secreeeeetRefresshhhh",
-  "access_time": "15s",
-  "refresh_time": "50s",
+  "access_time": "300s",
+  "refresh_time": "15d",
   "cookie_refresh_token_time": 1296000000,
   "iv": "Shox0219",
-  "crypt_password": "JUDAJUDAkuchliipassword"
+  "crypt_password": "JUDAJUDAkuchliipassword",
+  "email": "shoxjahonzohirov2010@gmail.com",
+  "email_password": "cehp efsg qqve cnym",
+  "otp_password": "Otppp1234"
 }

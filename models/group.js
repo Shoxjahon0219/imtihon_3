@@ -33,10 +33,6 @@ const Group = sequelize.define(
       type: DataTypes.TIME,
       allowNull: false,
     },
-    duration: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
     is_active: {
       type: DataTypes.BOOLEAN,
       defaultValue: true,

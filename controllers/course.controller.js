@@ -4,12 +4,13 @@ const Language = require("../models/language.js");
 
 const CreateCourse = async (req, res) => {
   try {
-    const { name, language_id, price } = req.body;
+    const { name, language_id, price, duration } = req.body;
 
     const newCourse = await Course.create({
       name,
       price,
       language_id,
+      duration,
     });
 
     res.status(201).send({
@@ -65,7 +66,7 @@ const GetOneCourse = async (req, res) => {
 
 const UpdateCourse = async (req, res) => {
   try {
-    const { name, price, language_id } = req.body;
+    const { name, price, language_id, duration } = req.body;
     const { id } = req.params;
 
     const course = await Course.update(
@@ -73,6 +74,7 @@ const UpdateCourse = async (req, res) => {
         name,
         price,
         language_id,
+        duration,
       },
       {
         where: { id },

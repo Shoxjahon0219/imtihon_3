@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/db");
+const Contract = require("./contract");
 
 const Payment = sequelize.define(
   "payment",
@@ -13,6 +14,10 @@ const Payment = sequelize.define(
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
     },
+    contract_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   },
   {
     freezeTableName: true,
@@ -20,5 +25,8 @@ const Payment = sequelize.define(
     updatedAt: false,
   }
 );
+
+Contract.hasMany(Payment, { foreignKey: "contract_id" });
+Payment.belongsTo(Contract, { foreignKey: "contract_id" });
 
 module.exports = Payment;
